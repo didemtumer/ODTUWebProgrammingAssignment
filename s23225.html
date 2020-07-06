@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+	
+
+		<script>
+	
+		function toplama() 
+		{
+			// Toplama islemi icin gerekli olan JavaScript kodunu buraya yazacaksiniz. 
+			var input_00 = document.getElementById('input_00');
+			var input_01 = document.getElementById('input_01');
+
+			var one = parseFloat(input_00.value) ;
+			var two = parseFloat(input_01.value) ;
+			var result= one+two;
+			document.getElementById('input_02').value= result;
+			
+		}
+
+		// Diger JavaScript fonksiyonlarinizi buraya yaziniz
+		
+		function ustAlma(){
+			var input_03 = document.getElementById('input_03');
+			var input_04 = document.getElementById('input_04');
+
+			var three = parseFloat(input_03.value) ;
+			var four = parseFloat(input_04.value) ;
+			var result= Math.pow(three,four);
+			console.log(result);
+			document.getElementById('input_05').value= result;
+			
+		};
+			var clicks = 0;
+
+			 	 
+		function kaydirma(){
+			 var input6= document.getElementById('input_06');
+			 var input7= document.getElementById('input_07');
+			 var input8= document.getElementById('input_08');
+			 var input9= document.getElementById('input_09');
+
+			 var six =input6.value;
+			 var seven =input7.value;
+			 var eight =input8.value;
+			 var nine =input9.value;
+			 		
+			clicks+=1;
+			
+			if (clicks % 4 === 0){
+				document.getElementById('input_10').value= six;
+				document.getElementById('input_11').value= seven;
+				document.getElementById('input_12').value= eight;
+				document.getElementById('input_13').value= nine;
+				
+			}else if(clicks % 4 === 1){
+				document.getElementById('input_10').value= seven;
+				document.getElementById('input_11').value= eight;
+				document.getElementById('input_12').value= nine;
+				document.getElementById('input_13').value= six;
+			}else if(clicks % 4 === 2){
+				document.getElementById('input_10').value= eight;
+				document.getElementById('input_11').value= nine;
+				document.getElementById('input_12').value= six;
+				document.getElementById('input_13').value= seven;
+			}else{
+				document.getElementById('input_10').value= nine;
+				document.getElementById('input_11').value= six;
+				document.getElementById('input_12').value= seven;
+				document.getElementById('input_13').value= eight;
+			};
+		};
+
+		function sifirlama(){
+			document.getElementById('input_10').value= " ";
+			document.getElementById('input_11').value= " ";
+			document.getElementById('input_12').value= " ";
+			document.getElementById('input_13').value= " ";	
+		};
+
+		function alfabetikOncelik(){
+			 var input14= document.getElementById('input_14');
+			 var input15= document.getElementById('input_15');
+			 var input16= document.getElementById('input_16');
+			 var input17= document.getElementById('input_17');
+
+			 var fourteen =input14.value;
+			 var fifteen =input15.value;
+			 var sixteen =input16.value;
+			 var seventeen =input17.value;
+
+			 var inputs =[];
+			 inputs[0] =fourteen;
+			 inputs[1] =fifteen;
+			 inputs[2]= sixteen;
+			 inputs[3] = seventeen;
+
+			 inputs.sort();
+			 document.getElementById('input_18').value= inputs[0];
+        };
+
+        function cemberCiz(){
+        	var canvas = document.getElementById('myCanvas');
+
+        	 var xEkseni = document.getElementById('xEkseni');
+			 var yEkseni = document.getElementById('yEkseni');
+			 var yariCap = document.getElementById('yariCap');
+			 var cizgiKalinlik= document.getElementById('cizgiKalinlik');
+
+			 //var x =parseFloat(xEkseni.value);
+			 //var y =parseFloat(yEkseni.value);
+			 //var r =parseFloat(yariCap.value);
+			 var cizgi =parseFloat(cizgiKalinlik.value);
+
+
+			if (canvas.getContext)
+			{
+			var ctx = canvas.getContext('2d'); 
+			var x =parseFloat(xEkseni.value);
+			var y =parseFloat(yEkseni.value);
+			var r =parseFloat(yariCap.value);
+			ctx.beginPath();
+			ctx.arc(x, y, r, 0, 2 * Math.PI, false);
+			ctx.lineWidth = cizgi;
+			ctx.strokeStyle = randomColor();
+			ctx.stroke();
+			};
+		};
+		function randomColor(){
+    		//pick a "red" rom 0 to 255
+   			var r = Math.floor(Math.random()*256);
+   			 //pick a "green" rom 0 to 255
+    		var g = Math.floor(Math.random()*256);
+    		//pick a "blue" rom 0 to 255
+    		var b = Math.floor(Math.random()*256);
+    		return "rgb(" + r + ", " + g + ", " + b + ")";
+		};
+
+        function temizle(){
+        	var canvas = document.getElementById('myCanvas');
+        	var context = canvas.getContext('2d');
+			context.clearRect(0, 0, canvas.width, canvas.height);
+        };
+		</script>
+
+	</head>
+	<body>
+  
+		<div class="container-fluid">
+			<h1> <center>Toplama</h1>
+		    	<div class="row">
+				<div class="col-md-4 ">
+			    		<div class="border">
+			    			<div id="op00">Sayılar<center><input id="input_00" type="text" class="inputs" ></div>
+					 	<div id="op01"><center><input id="input_01" type="text" class="inputs" ></div>
+			   		</div>
+			  
+				</div>
+
+		    		<div class="col-md-4 ">
+			  		<div class="next-div">
+			    			<button type="button" class="btn btn-success btn-block btn-md" onclick="toplama()"> Hesapla </button>
+			  		</div>
+		    		</div>
+
+		    		<div class="col-md-4 col-sm-4">
+			    		<div class="border">
+		      				<div id="op02"> Çıktı <center><input id="input_02" type="text" class="inputs" readonly="true" ></div>
+			   		</div>	
+		    		</div>
+		    	</div>
+		</div>
+	
+		<br/>
+		<br/>
+
+		<!-- Diger odev gereksinimleri icin ihtiyac duydugunuz HTML kodlarini (JavaScript fonksiyonlarini cagirmak icin gereken adimlari) buraya yazacaksiniz -->
+
+		<!--Üst Alma Fonksiyonu için gerekli HTML kodları-->
+		<div class="container-fluid">
+			<h1> <center>Üst Alma</h1>
+				<div class="row">
+					<div class="col-md-4">
+			    		<div class="border">
+			    			<div id="op00">Sayılar<center><input id="input_03" type="text" class="inputs" ></div>
+							<div id="op01"><center><input id="input_04" type="text" class="inputs" ></div>
+			   			</div>
+					</div>
+
+		    		<div class="col-md-4">
+			  			<div class="next-div">
+			    			<button type="button" class="btn btn-success btn-block btn-md btm-sm" onclick="ustAlma()"> Hesapla </button>
+			  			</div>
+		    		</div>
+
+		    		<div class="col-md-4">
+			   			<div class="border">
+		      				<div id="op02"> Çıktı <center><input id="input_05" type="text" class="inputs" readonly="true" ></div>
+			   			</div>	
+		    		</div>
+				</div>
+		</div>
+
+		<!--Kaydırma Fonksiyonu için gerekli HTML kodları-->
+		<div class="container-fluid">
+			<h1><center>Kaydırma</h1>
+				<div class="row">
+					<div class="col-md-4">
+			    		<div class="border">
+			    			<div id="op00">Sayılar<center><input id="input_06" type="text" class="inputs" ></div>
+							<div id="op01"><center><input id="input_07" type="text" class="inputs" ></div>
+							<div id="op02"><center><input id="input_08" type="text" class="inputs" ></div>
+							<div id="op03"><center><input id="input_09" type="text" class="inputs" ></div>
+			   			</div>
+					</div>
+
+		    		<div class="col-md-4">
+			  			<div class="next-div">
+			    			<button type="button" class="btn btn-success btn-block btn-md" onclick="kaydirma()"> Kaydır </button>
+			    			<button type="button" class="btn btn-success btn-block btn-md" onclick="sifirlama()"> Sıfırla </button>
+			  			</div>
+		    		</div>
+
+		    		<div class="col-md-4">
+			    		<div class="border">
+		      				<div id="op04"> Çıktılar <center><input id="input_10" type="text" class="inputs" readonly="true" ></div>
+		      				<div id="op05"><center><input id="input_11" type="text" class="inputs" readonly="true" ></div>
+		      				<div id="op06"><center><input id="input_12" type="text" class="inputs" readonly="true" ></div>
+		      				<div id="op07"><center><input id="input_13" type="text" class="inputs" readonly="true" ></div>	
+			   			</div>	
+		    		</div>
+				</div>
+		</div>
+		<!--Alfabetik Oncelik Fonksiyonu için gerekli HTML kodları-->
+		<div class="container-fluid">
+		    <h1> <center>Alfabetik Oncelik</h1>
+		    	<div class="row">
+					<div class="col-md-4">
+			    		<div class="border">
+			    			<div id="op08"><center><input id="input_14" type="text" class="inputs" ></div>
+					 		<div id="op09"><center><input id="input_15" type="text" class="inputs" ></div>
+					 		<div id="op10"><center><input id="input_16" type="text" class="inputs" ></div>
+					 		<div id="op11"><center><input id="input_17" type="text" class="inputs" ></div>
+			   			</div>
+			  		</div>
+
+		    		<div class="col-md-4">
+			  			<div class="next-div">
+			    			<button type="button" class="btn btn-success btn-block btn-md" onclick="alfabetikOncelik()"> Kaydır </button>
+			    		</div>
+		    		</div>
+
+		    		<div class="col-md-4">
+			    		<div class="border">
+		      				<div id="op04"> Çıktı <center><input id="input_18" type="text" class="inputs" readonly="true" ></div>
+		      			</div>	
+		    		</div>
+		    	</div>
+		</div>
+
+
+		<!--Çember Çizman Fonksiyonu için gerekli HTML kodları-->
+		<div class="container-fluid">
+		    <h1> <center>Çember Çizme</h1>
+		    	<div class="row">
+					<div class="col-md-4">
+			    		<div class="border">
+			    			<div id="op00">X<center><input id="xEkseni" type="text" class="inputs" ></div>
+					 		<div id="op01">Y<center><input id="yEkseni" type="text" class="inputs" ></div>
+					 		<div id="op02">Yarı Çap<center><input id="yariCap" type="text" class="inputs" ></div>
+					 		<div id="op03">Çizgi Kalınlığı<center><input id="cizgiKalinlik" type="text" class="inputs" ></div>
+			   			</div>
+			        </div>
+
+		    		<div class="col-md-4">
+			  			<div class="next-div">
+			    			<button type="button" class="btn btn-success btn-block btn-md" onclick="cemberCiz()"> Çember Çiz </button>
+			    			<button type="button" class="btn btn-success btn-block btn-md" onclick="temizle()"> Temizle </button>
+			  			</div>
+		    		</div>
+
+		    		<div class="col-md-4">
+			    		<div class="border">
+		      				<div id="op04"> <center><canvas id="myCanvas" width="578" height="200"></canvas></div>
+		      			</div>	
+		    		</div>
+		    	</div>
+		</div>
+
+  	</body>
+</html>
